@@ -1,5 +1,5 @@
-const userService = require("../services/user.service");
-const catchAsync = require("../utils/catchAsync");
+import userService from '../services/user.service.js';
+import catchAsync from '../utils/catchAsync.js';
 
 class UserController {
   /**
@@ -76,4 +76,4 @@ class UserController {
   });
 }
 
-module.exports = new UserController();
+export default new UserController();

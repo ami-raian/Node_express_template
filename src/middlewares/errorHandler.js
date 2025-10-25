@@ -1,4 +1,4 @@
-const { env } = require('../config');
+import { env } from '../config/index.js';
 
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
@@ -37,4 +37,4 @@ const errorHandler = (err, req, res, next) => {
   });
 };
 
-module.exports = errorHandler;
+export default errorHandler;

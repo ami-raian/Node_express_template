@@ -1,5 +1,5 @@
-const express = require('express');
-const userRoutes = require('./user.routes');
+import express from 'express';
+import userRoutes from './user.routes.js';
 
 const router = express.Router();
 
@@ -19,4 +19,4 @@ router.use('/users', userRoutes);
 // router.use('/products', productRoutes);
 // router.use('/orders', orderRoutes);
 
-module.exports = router;
+export default router;

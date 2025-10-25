@@ -1,4 +1,4 @@
-const Joi = require('joi');
+import Joi from 'joi';
 
 const userValidation = {
   createUser: {
@@ -35,4 +35,4 @@ const userValidation = {
   },
 };
 
-module.exports = { userValidation };
+export { userValidation };

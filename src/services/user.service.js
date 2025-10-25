@@ -1,5 +1,5 @@
-const userRepository = require("../repositories/user.repository");
-const AppError = require("../utils/appError");
+import userRepository from '../repositories/user.repository.js';
+import AppError from '../utils/appError.js';
 
 class UserService {
   /**
@@ -103,4 +103,4 @@ class UserService {
   }
 }
 
-module.exports = new UserService();
+export default new UserService();

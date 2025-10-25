@@ -1,7 +1,4 @@
-const env = require("./env");
-const connectDB = require("./database");
+import env from './env.js';
+import connectDB from './database.js';
 
-module.exports = {
-  env,
-  connectDB,
-};
+export { env, connectDB };

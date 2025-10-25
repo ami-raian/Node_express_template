@@ -1,5 +1,5 @@
-const app = require('./app');
-const { env, connectDB } = require('./config');
+import app from './app.js';
+import { env, connectDB } from './config/index.js';
 
 // Handle uncaught exceptions
 process.on('uncaughtException', (err) => {

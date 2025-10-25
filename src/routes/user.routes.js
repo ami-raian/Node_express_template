@@ -1,7 +1,7 @@
-const express = require('express');
-const userController = require('../controllers/user.controller');
-const { validate } = require('../middlewares/validate');
-const { userValidation } = require('../validators/user.validator');
+import express from 'express';
+import userController from '../controllers/user.controller.js';
+import { validate } from '../middlewares/validate.js';
+import { userValidation } from '../validators/user.validator.js';
 
 const router = express.Router();
 
@@ -16,4 +16,4 @@ router
   .put(validate(userValidation.updateUser), userController.updateUser)
   .delete(validate(userValidation.deleteUser), userController.deleteUser);
 
-module.exports = router;
+export default router;

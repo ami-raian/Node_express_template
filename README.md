@@ -4,6 +4,7 @@ A professional, production-ready Node.js Express REST API template with clean ar
 
 ## Features
 
+- **ES6 Modules**: Modern JavaScript with import/export syntax
 - **Clean Architecture**: Separation of concerns with Controllers, Services, Repositories
 - **Repository Pattern**: Database abstraction layer for better maintainability
 - **Security**: Helmet, CORS, Rate Limiting
@@ -182,25 +183,46 @@ curl -X POST http://localhost:5000/api/v1/users \
   }'
 ```
 
+## ES6 Modules
+
+This project uses **ES6 Modules** (`import`/`export`) instead of CommonJS (`require`/`module.exports`).
+
+### Key Points:
+- All imports must include `.js` file extension
+- Use `import` and `export` syntax
+- See [ES6_MODULES_GUIDE.md](ES6_MODULES_GUIDE.md) for complete guide
+
+### Example:
+```javascript
+// ✅ Correct ES6 import
+import User from '../models/user.model.js';
+import { env } from '../config/index.js';
+
+// ❌ Wrong (missing .js extension)
+import User from '../models/user.model';
+```
+
 ## Adding New Features
 
 ### 1. Create Model
 ```javascript
 // src/models/product.model.js
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const productSchema = new mongoose.Schema({
   name: { type: String, required: true },
   price: { type: Number, required: true }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', productSchema);
+
+export default Product;
 ```
 
 ### 2. Create Repository
 ```javascript
 // src/repositories/product.repository.js
-const Product = require('../models/product.model');
+import Product from '../models/product.model.js';
 
 class ProductRepository {
   async findAll() {
@@ -212,13 +234,13 @@ class ProductRepository {
   }
 }
 
-module.exports = new ProductRepository();
+export default new ProductRepository();
 ```
 
 ### 3. Create Service
 ```javascript
 // src/services/product.service.js
-const productRepository = require('../repositories/product.repository');
+import productRepository from '../repositories/product.repository.js';
 
 class ProductService {
   async getAllProducts() {
@@ -230,14 +252,14 @@ class ProductService {
   }
 }
 
-module.exports = new ProductService();
+export default new ProductService();
 ```
 
 ### 4. Create Controller
 ```javascript
 // src/controllers/product.controller.js
-const productService = require('../services/product.service');
-const catchAsync = require('../utils/catchAsync');
+import productService from '../services/product.service.js';
+import catchAsync from '../utils/catchAsync.js';
 
 class ProductController {
   getAllProducts = catchAsync(async (req, res) => {
@@ -246,25 +268,25 @@ class ProductController {
   });
 }
 
-module.exports = new ProductController();
+export default new ProductController();
 ```
 
 ### 5. Create Routes
 ```javascript
 // src/routes/product.routes.js
-const express = require('express');
-const productController = require('../controllers/product.controller');
+import express from 'express';
+import productController from '../controllers/product.controller.js';
 
 const router = express.Router();
 router.get('/', productController.getAllProducts);
 
-module.exports = router;
+export default router;
 ```
 
 ### 6. Register Routes
 ```javascript
 // src/routes/index.js
-const productRoutes = require('./product.routes');
+import productRoutes from './product.routes.js';
 router.use('/products', productRoutes);
 ```
 

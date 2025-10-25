@@ -1,12 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
-const { env } = require('./config');
-const routes = require('./routes');
-const errorHandler = require('./middlewares/errorHandler');
-const notFound = require('./middlewares/notFound');
-const logger = require('./middlewares/logger');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import { env } from './config/index.js';
+import routes from './routes/index.js';
+import errorHandler from './middlewares/errorHandler.js';
+import notFound from './middlewares/notFound.js';
+import logger from './middlewares/logger.js';
 
 const app = express();
 
@@ -58,4 +58,4 @@ app.use(notFound);
 // Error handler
 app.use(errorHandler);
 
-module.exports = app;
+export default app;
