@@ -219,8 +219,6 @@ npm start          # Start production server
 npm run dev        # Start development server (nodemon)
 npm test           # Run tests with coverage
 npm run test:watch # Run tests in watch mode
-npm run lint       # Check code quality
-npm run lint:fix   # Fix linting issues
 npm run format     # Format code with Prettier
 ```
 

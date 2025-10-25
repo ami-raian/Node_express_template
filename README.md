@@ -11,7 +11,7 @@ A professional, production-ready Node.js Express REST API template with clean ar
 - **Validation**: Request validation using Joi
 - **Error Handling**: Centralized error handling
 - **Logging**: Morgan HTTP request logger
-- **Code Quality**: ESLint, Prettier configuration
+- **Code Quality**: Prettier configuration for consistent formatting
 - **Testing**: Jest setup ready
 - **Environment Config**: Dotenv for environment variables
 
@@ -146,8 +146,6 @@ npm start
 - `npm run dev` - Start development server with nodemon
 - `npm test` - Run tests with coverage
 - `npm run test:watch` - Run tests in watch mode
-- `npm run lint` - Lint code
-- `npm run lint:fix` - Fix linting errors
 - `npm run format` - Format code with Prettier
 
 ## API Endpoints
