@@ -15,7 +15,12 @@ import ResponseHelper from '../helpers/response.helper.js';
 export const register = catchAsync(async (req, res) => {
   const { user, token } = await authService.register(req.body);
 
-  ResponseHelper.success(res, { user, token }, 'User registered successfully', 201);
+  ResponseHelper.success(
+    res,
+    { user, token },
+    'User registered successfully',
+    201
+  );
 });
 
 /**

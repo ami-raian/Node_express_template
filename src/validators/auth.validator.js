@@ -61,8 +61,11 @@ export const updatePasswordSchema = Joi.object({
     'string.min': 'New password must be at least 6 characters long',
     'any.required': 'New password is required',
   }),
-  confirmPassword: Joi.string().valid(Joi.ref('newPassword')).required().messages({
-    'any.only': 'Passwords do not match',
-    'any.required': 'Please confirm your new password',
-  }),
+  confirmPassword: Joi.string()
+    .valid(Joi.ref('newPassword'))
+    .required()
+    .messages({
+      'any.only': 'Passwords do not match',
+      'any.required': 'Please confirm your new password',
+    }),
 });

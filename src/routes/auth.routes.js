@@ -1,7 +1,11 @@
 import express from 'express';
 import * as authController from '../controllers/auth.controller.js';
 import { validate } from '../middlewares/validate.js';
-import { registerSchema, loginSchema, updatePasswordSchema } from '../validators/auth.validator.js';
+import {
+  registerSchema,
+  loginSchema,
+  updatePasswordSchema,
+} from '../validators/auth.validator.js';
 import { requireAuth } from '../middlewares/auth.js';
 
 const router = express.Router();
@@ -11,7 +15,11 @@ const router = express.Router();
  * @desc    Register a new user
  * @access  Public
  */
-router.post('/register', validate({ body: registerSchema }), authController.register);
+router.post(
+  '/register',
+  validate({ body: registerSchema }),
+  authController.register
+);
 
 /**
  * @route   POST /api/v1/auth/login
@@ -32,7 +40,12 @@ router.get('/me', requireAuth, authController.getMe);
  * @desc    Update current user's password
  * @access  Private
  */
-router.put('/update-password', requireAuth, validate({ body: updatePasswordSchema }), authController.updatePassword);
+router.put(
+  '/update-password',
+  requireAuth,
+  validate({ body: updatePasswordSchema }),
+  authController.updatePassword
+);
 
 /**
  * @route   POST /api/v1/auth/logout
