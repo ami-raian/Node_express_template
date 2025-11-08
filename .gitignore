@@ -26,7 +26,7 @@ coverage/
 .nyc_output
 
 # IDE
-.vscode/
+# .vscode/ - Keeping VS Code settings for team
 .idea/
 *.swp
 *.swo

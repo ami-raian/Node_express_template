@@ -16,7 +16,7 @@ class UserRepository {
    * @returns {Promise<Object|null>}
    */
   async findByEmail(email) {
-    return await User.findOne({ email }).select("+password");
+    return await User.findOne({ email }).select('+password');
   }
 
   /**
@@ -25,7 +25,7 @@ class UserRepository {
    * @returns {Promise<Array>}
    */
   async findAll(options = {}) {
-    const { page = 1, limit = 10, sort = "-createdAt" } = options;
+    const { page = 1, limit = 10, sort = '-createdAt' } = options;
     const skip = (page - 1) * limit;
 
     return await User.find().sort(sort).skip(skip).limit(limit);

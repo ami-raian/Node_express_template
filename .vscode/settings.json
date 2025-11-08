@@ -1,0 +1,33 @@
+{
+  // Prettier Configuration
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // JavaScript/TypeScript specific
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Prettier settings
+  "prettier.requireConfig": false,
+  "prettier.useEditorConfig": false,
+
+  // File associations
+  "files.associations": {
+    "*.js": "javascript"
+  },
+
+  // Auto save
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+
+  // Exclude files from file explorer
+  "files.exclude": {
+    "node_modules": true,
+    "**/.git": true
+  }
+}
